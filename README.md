@@ -24,8 +24,8 @@ include script tag from rawgit CDN
 Unfortunately, flat-js documentation has not yet been generated; though most functions have JSDoc comment blocks.
 
 ## Examples
- * URL Queries
- * Value testing
+ * [URL Queries](#example-1-url-query-values)
+ * [Value testing](#example-2-url-value-testing)
 
 ### Example 1: URL query values
 Flat-js simplifies reading and manipulating browser URLs to single lines.
