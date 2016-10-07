@@ -2,7 +2,7 @@
 Flat's javascript library. Offers convenient 1 line wrappers for a variety of functionality.
 
 ##Installation
-Install using Bower or CDN methods below.
+Install using one of either the Bower or CDN methods as detailed below.
 
 ### Installation Method 1: Using Bower
 execute bower shell command:
