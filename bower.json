@@ -1,0 +1,19 @@
+{
+  "name": "flat-js",
+  "description": "flat's javascript library'",
+  "homepage": "https://github.com/katmore/flat-js",
+  "license": "MIT",
+  "main": [
+     "src/js/flat.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "3"
+  }
+}
