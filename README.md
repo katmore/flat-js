@@ -26,8 +26,9 @@ Unfortunately, flat-js documentation has not yet been generated; though most fun
 ## Examples
  * URL Queries
  * Value testing
+
 ### Example 1: URL query values
-Flat simplifies reading and manipulating browser URLs to single lines.
+Flat-js simplifies reading and manipulating browser URLs to single lines.
 
 In the examples below, Replace "example.com" with the host and path to your project/resource, 
 then add the query string to the URL in your browser.
@@ -84,3 +85,69 @@ flat.urlQuery_set('my_key','my_new_value');
 console.log('my_key value from urlQuery_set: '+ myKeyValue);
 ```
 
+### Example 2: Value testing
+Flat-js simplifies value testing to single lines.
+
+#### Example 2.1: test if value is function
+```javascript
+var var1 = function() {};
+var var2 = {};
+var var3 = "";
+var var4 = 1;
+var var5 = [];
+var isVar1Function flat.is_func(var1);
+var isVar2Function flat.is_func(var2);
+var isVar3Function flat.is_func(var3);
+var isVar4Function flat.is_func(var4);
+var isVar5Function flat.is_func(var5);
+console.log('is var1 a function? '+isVar1Function);
+console.log('is var2 a function? '+isVar2Function);
+console.log('is var3 a function? '+isVar3Function);
+console.log('is var4 a function? '+isVar4Function);
+console.log('is var5 a function? '+isVar5Function);
+```
+#### Example 2.2: test if value is integer
+```javascript
+var var1 = function() {};
+var var2 = {};
+var var3 = "";
+var var4 = 1;
+var var5 = [];
+var isVar1Integer flat.is_int(var1);
+var isVar2Integer flat.is_int(var2);
+var isVar3Integer flat.is_int(var3);
+var isVar4Integer flat.is_int(var4);
+var isVar5Integer flat.is_int(var5);
+console.log('is var1 a integer? '+isVar1Integer);
+console.log('is var2 a integer? '+isVar2Integer);
+console.log('is var3 a integer? '+isVar3Integer);
+console.log('is var4 a integer? '+isVar4Integer);
+console.log('is var5 a integer? '+isVar5Integer);
+```
+#### Example 2.2: test if value is string
+```javascript
+var var1 = function() {};
+var var2 = {};
+var var3 = "";
+var var4 = 1;
+var var5 = [];
+var isVar1String flat.is_string(var1);
+var isVar2String flat.is_string(var2);
+var isVar3String flat.is_string(var3);
+var isVar4String flat.is_string(var4);
+var isVar5String flat.is_string(var5);
+console.log('is var1 a string? '+isVar1String);
+console.log('is var2 a string? '+isVar2String);
+console.log('is var3 a string? '+isVar3String);
+console.log('is var4 a string? '+isVar4String);
+console.log('is var5 a string? '+isVar5String);
+```
+Additionally, flat.is_array() and flat.is_object work similarly to is_func, is_int, and is_string...
+```
+// flat.is_array()
+console.log('am I an array?' + flat.is_array([]);
+console.log('am I an array?' + flat.is_array("poop");
+// flat.is_object()
+console.log('am I an object?' + flat.is_array({});
+console.log('am I an object?' + flat.is_array("poop");
+```
