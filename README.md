@@ -11,7 +11,8 @@ bower install katmore/flat-js --save
 ```
 include script tag from your project's bower components path
 ```html
-<script src="./components/flat-js/src/flat.js"></script>
+<!-- change './bower_components' as appropriate -->
+<script src="./bower_components/flat-js/src/flat.js"></script>
 ```
 
 ### Installation Method 2: Using CDN
