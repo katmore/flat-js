@@ -34,7 +34,7 @@ In the examples below, Replace "example.com" with the host and path to your proj
 then add the query string to the URL in your browser.
 
 #### Example 1.1: Does a query key exist?
-```javscript
+```javascript
 //
 // assuming browser URL: http://example.com/?ohai&my_key=my_value
 //
@@ -143,7 +143,7 @@ console.log('is var4 a string? '+isVar4String);
 console.log('is var5 a string? '+isVar5String);
 ```
 Additionally, flat.is_array() and flat.is_object work similarly to is_func, is_int, and is_string...
-```
+```javascript
 // flat.is_array()
 console.log('am I an array?' + flat.is_array([]);
 console.log('am I an array?' + flat.is_array("poop");
