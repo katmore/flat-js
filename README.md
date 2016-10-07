@@ -27,10 +27,10 @@ include script tag from rawgit CDN
 Unfortunately, flat-js documentation has not yet been generated; though some functions have JSDoc comment blocks.
 
 ## Examples
- * [URL Queries](#example-1-url-query-values)
- * [Value testing](#example-2-value-testing)
+ * [URL Queries](#url-query-examples)
+ * [Value testing](#value-testing-examples)
 
-### Example 1: URL query values
+### URL query Examples
 Flat-js simplifies reading and manipulating browser URLs to single lines.
 
 In the examples below, replace "example.com" with the host and path to your project/resource, 
@@ -88,7 +88,7 @@ flat.urlQuery_set('my_key','my_new_value');
 console.log('my_key value from urlQuery_set: '+ myKeyValue);
 ```
 
-### Example 2: Value testing
+### Value testing examples
 Flat-js simplifies value testing to single lines.
 
 #### Example 2.1: test if value is function
