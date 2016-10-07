@@ -1,5 +1,5 @@
 # flat-js
-javascript library companion to [the flat framework](https://github.com/katmore/flat). Offers convenient single-line wrappers for a variety of functionality.
+Javascript companion to [the flat framework](https://github.com/katmore/flat). Offers convenient single-line wrappers for a variety of functionality.
 
 ##Installation
 Install using one of either the Bower or CDN methods as detailed below.
