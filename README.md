@@ -27,10 +27,10 @@ include script tag from rawgit CDN
 Unfortunately, flat-js documentation has not yet been generated; though some functions have JSDoc comment blocks.
 
 ## Examples
- * [URL Queries](#url-query-examples)
- * [Value testing](#value-testing-examples)
+ * [URL query examples](#url-query-examples)
+ * [Value testing examples](#value-testing-examples)
 
-### URL query Examples
+### URL query examples
 Flat-js simplifies reading and manipulating browser URLs to single lines.
 
 In the examples below, replace "example.com" with the host and path to your project/resource, 
