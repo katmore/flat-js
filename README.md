@@ -124,7 +124,7 @@ console.log('is var3 a integer? '+isVar3Integer);
 console.log('is var4 a integer? '+isVar4Integer);
 console.log('is var5 a integer? '+isVar5Integer);
 ```
-#### Example 2.2: test if value is string
+#### Example 2.3: test if value is string
 ```javascript
 var var1 = function() {};
 var var2 = {};
@@ -142,7 +142,8 @@ console.log('is var3 a string? '+isVar3String);
 console.log('is var4 a string? '+isVar4String);
 console.log('is var5 a string? '+isVar5String);
 ```
-Additionally, flat.is_array() and flat.is_object work similarly to is_func, is_int, and is_string...
+#### Example 2.4: array and object value test
+flat.is_array() and flat.is_object work similarly to is_func, is_int, and is_string...
 ```javascript
 // flat.is_array()
 console.log('am I an array?' + flat.is_array([]);
