@@ -54,7 +54,7 @@ var myKeyValue = flat.urlQuery_get('my_key');
 console.log('my_key value: '+ myKeyValue);
 ```
 #### Example 1.3: Determine if a query key/val has a "truthy" value.
-```
+```javascript
 //
 // assuming browser URL: 
 //   http://example.com/?my_option1=on,my_option2=off,my_option3=yes,my_option4=no,my_option5=true,my_option6=false
