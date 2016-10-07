@@ -33,7 +33,7 @@ Unfortunately, flat-js documentation has not yet been generated; though some fun
 ### Example 1: URL query values
 Flat-js simplifies reading and manipulating browser URLs to single lines.
 
-In the examples below, Replace "example.com" with the host and path to your project/resource, 
+In the examples below, replace "example.com" with the host and path to your project/resource, 
 then add the query string to the URL in your browser.
 
 #### Example 1.1: Does a query key exist?
@@ -48,7 +48,7 @@ console.log('Does "ohai" exist? '+ohai_exists);
 console.log('Does "obai" exist? '+obai_exists);
 console.log('Does "my_key" exist? ' + mykey_exists);
 ```
-### Example 1.2: Determine a query key/val value.
+#### Example 1.2: Determine a query key/val value.
 ```javascript
 //
 // assuming browser URL: http://example.com/?my_key=my_value
