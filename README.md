@@ -1,5 +1,5 @@
 # flat-js
-Flat's javascript library
+Flat's javascript library. Offers convenient 1 line wrappers for a variety of functionality.
 
 ##Installation
 It is fairly simple to install flat-js via Bower or CDN.
