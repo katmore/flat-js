@@ -152,6 +152,6 @@ flat.is_array() and flat.is_object work similarly to is_func, is_int, and is_str
 console.log('am I an array?' + flat.is_array([]);
 console.log('am I an array?' + flat.is_array("poop");
 // flat.is_object()
-console.log('am I an object?' + flat.is_array({});
-console.log('am I an object?' + flat.is_array("poop");
+console.log('am I an object?' + flat.is_object({});
+console.log('am I an object?' + flat.is_object("poop");
 ```
