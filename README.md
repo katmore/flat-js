@@ -2,9 +2,9 @@
 Flat's javascript library. Offers convenient 1 line wrappers for a variety of functionality.
 
 ##Installation
-Install using Bower or CDN options below.
+Install using one of either the Bower or CDN methods as detailed below.
 
-### Option 1: Using Bower
+### Installation Method 1: Using Bower
 execute bower shell command:
 ```Shell
 bower install katmore/flat-js --save
@@ -14,7 +14,7 @@ include script tag from your project's bower components path
 <script src="./components/flat-js/src/flat.js"></script>
 ```
 
-### Option 2: Using CDN (See the [rawgit CDN FAQ](https://github.com/rgrove/rawgit/wiki/Frequently-Asked-Questions))
+### Installation Method 2: Using CDN (See the [rawgit CDN FAQ](https://github.com/rgrove/rawgit/wiki/Frequently-Asked-Questions))
 include script tag from rawgit CDN
 ```html
 <!-- thanks to Ryan Grove for operating https://rawgit.com-->
