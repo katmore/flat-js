@@ -7,7 +7,7 @@ Install using one of either the Bower or CDN methods as detailed below.
 ### Installation Method 1: Using Bower
 execute bower shell command:
 ```Shell
-bower install katmore/flat-js --save
+$ bower install katmore/flat-js --save
 ```
 include script tag from your project's bower components path
 ```html
