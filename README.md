@@ -2,7 +2,7 @@
 Flat's javascript library. Offers convenient 1 line wrappers for a variety of functionality.
 
 ##Installation
-It is fairly simple to install flat-js via Bower or CDN.
+Install using Bower or CDN options below.
 
 ### Option 1: Using Bower
 execute bower shell command:
