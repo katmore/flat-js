@@ -24,7 +24,7 @@ include script tag from rawgit CDN
 (See the [rawgit CDN FAQ](https://github.com/rgrove/rawgit/wiki/Frequently-Asked-Questions) for more information)
 
 ## Documentation
-Unfortunately, flat-js documentation has not yet been generated; though most functions have JSDoc comment blocks.
+Unfortunately, flat-js documentation has not yet been generated; though some functions have JSDoc comment blocks.
 
 ## Examples
  * [URL Queries](#example-1-url-query-values)
