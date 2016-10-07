@@ -5,11 +5,11 @@ Javascript companion to [the flat framework](https://github.com/katmore/flat). O
 Install using one of either the Bower or CDN methods as detailed below.
 
 ### Installation Method 1: Using Bower
-#### Step 1.1: execute bower shell command:
+#### Step 1: execute bower shell command:
 ```Shell
 $ bower install katmore/flat-js --save
 ```
-#### Step 1.2 include script tag from your project's bower components path
+#### Step 2 include script tag from your project's bower components path
 ```html
 <!-- change './bower_components' as appropriate -->
 <script src="./bower_components/flat-js/src/flat.js"></script>
