@@ -25,7 +25,7 @@ Unfortunately, flat-js documentation has not yet been generated; though most fun
 
 ## Examples
  * [URL Queries](#example-1-url-query-values)
- * [Value testing](#example-2-url-value-testing)
+ * [Value testing](#example-2-value-testing)
 
 ### Example 1: URL query values
 Flat-js simplifies reading and manipulating browser URLs to single lines.
