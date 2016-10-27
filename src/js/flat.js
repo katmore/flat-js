@@ -99,7 +99,7 @@ var flat = (function() {
            if (!pub.is_string(skey)) {
               throw new error('storage key: must be string');
            }           
-           return getCookie(ckey);
+           return getCookie(skey);
         };
         shim.setItem = function(skey,sval) {
            if (!pub.is_string(skey)) {
