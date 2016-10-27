@@ -56,7 +56,65 @@ var flat = (function() {
    
    pub.base_url = base_url;
    var data_storage_prefix = 'flat/';
-   var data_storage = sessionStorage;
+   
+   var data_storage;
+   try {
+      storage.setItem(testKey, '1');
+      storage.removeItem(testKey);
+      data_storage = sessionStorage;
+   }  catch (error) 
+   {
+      data_storage = null;
+   }
+   if (!data_storage) {
+      data_storage = (function() {
+         var shim_prefix = 'sessionStorageShim/';
+         var setCookie = function(ckey, cvalue) {
+            var cname = shim_prefix + ckey;
+            var d = new Date();
+            d.setTime(d.getTime() + (365*24*60*60*1000));
+            var expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        
+        var getCookie = function(ckey) {
+           var cname = shim_prefix + ckey;
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+        var shim = {};
+        //val = data_storage.getItem(fullkey);
+        //data_storage.setItem(fullkey,JSON.stringify(val));
+        shim.getItem = function(skey) {
+           if (!pub.is_string(skey)) {
+              throw new error('storage key: must be string');
+           }           
+           return getCookie(ckey);
+        };
+        shim.setItem = function(skey,sval) {
+           if (!pub.is_string(skey)) {
+              throw new error('storage key: must be string');
+           }
+           if (!pub.is_string(sval)) {
+              throw new error('storage value: must be string');
+           }           
+           return setCookie(skey,sval);
+        };
+        return shim;
+         //document.cookie = 'cookie=ok;expires='+now.toGMTString()+';path=/';
+      })();
+   }
+   
    
    /**
     * wheather to display stack trace in debug messages
