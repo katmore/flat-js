@@ -439,15 +439,22 @@ var flat = (function() {
    pub.crc32 = function(str) {
       return crc32(str);
    };
+   
+   var lut = []; for (var il=0; il<256; il++) { lut[il] = (il<16?'0':'')+(il).toString(16); }
+   /**
+    * Fast UUID generator, RFC4122 version 4 compliant.
+    * @link http://jcward.com/UUID.js
+    **/
    pub.uuid = function() {
-      var d = Date.now();
-      var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-          var r = (d + Math.random()*16)%16 | 0;
-          d = Math.floor(d/16);
-          return (c=='x' ? r : (r&0x3|0x8)).toString(16);
-      });
-      return uuid;
-   }
+      var d0 = Math.random()*0xffffffff|0;
+      var d1 = Math.random()*0xffffffff|0;
+      var d2 = Math.random()*0xffffffff|0;
+      var d3 = Math.random()*0xffffffff|0;
+      return lut[d0&0xff]+lut[d0>>8&0xff]+lut[d0>>16&0xff]+lut[d0>>24&0xff]+'-'+
+        lut[d1&0xff]+lut[d1>>8&0xff]+'-'+lut[d1>>16&0x0f|0x40]+lut[d1>>24&0xff]+'-'+
+        lut[d2&0x3f|0x80]+lut[d2>>8&0xff]+'-'+lut[d2>>16&0xff]+lut[d2>>24&0xff]+
+        lut[d3&0xff]+lut[d3>>8&0xff]+lut[d3>>16&0xff]+lut[d3>>24&0xff];
+    };
    return pub;
 }());
 
