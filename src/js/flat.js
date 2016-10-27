@@ -281,7 +281,15 @@ var flat = (function() {
       if(typeof val === 'undefined'){
          val = data_storage.getItem(fullkey);
          if (val === null) return null;
-         if (json = JSON.parse(val)) return json;
+         try {
+            if (json = JSON.parse(val)) {
+               return json;
+            }
+         } catch (error) {
+            console.log('json error...');
+            console.debug(val);
+            return null;
+         }
          if (json===false) return false;
          if (json === null) return null;
          throw "invalid json for key '"+key+"'";
