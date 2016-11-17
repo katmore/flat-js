@@ -386,6 +386,9 @@ var flat = (function() {
       priv.parseQueryString();
       if (typeof(val)!="undefined" && val!==null) {
          params[key] = val;
+         if (plist.indexOf(key)==-1) {
+            plist.push(key);
+         }
       } else {
          var kidx=plist.indexOf(key);
          if (kidx!=-1) {
@@ -393,7 +396,6 @@ var flat = (function() {
             plist.splice(kidx,1);
          }
       }
-      //window.location.pathname
       var url = window.location.pathname;
       if (plist.length>0) {
          url = url + "?" + pub.urlQueryString();
