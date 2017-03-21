@@ -1,32 +1,29 @@
-# flat-js
-**The Flat Javascript Companion**
+# Flat-js
+**The Flat JavaScript Companion**
 
-Javascript companion to [the flat framework](https://github.com/katmore/flat). Offers convenient single-line wrappers for a variety of functionality.
+Flat-js is the JavaScript companion to [the flat framework](https://github.com/katmore/flat). It contains convenience wrappers and utility functions.
 
 ##Installation
-Install using one of either the Bower or CDN methods as detailed below.
+Flat-js may be installed using Bower or a CDN as described below.
 
-### Installation Method 1: Using Bower
-#### Step 1: execute bower shell command:
+### Install using Bower
+#### Bower Step 1: execute bower shell command:
 ```Shell
 $ bower install katmore/flat-js --save
 ```
-#### Step 2: include script tag pointing your project's bower components path
+#### Bower Step 2: include script tag pointing your project's bower components path
 ```html
 <!-- change './bower_components' to point to your project's bower components path as appropriate-->
 <script src="./bower_components/flat-js/dist/js/flat.min.js"></script>
 ```
 
-### Installation Method 2: Using CDN
-include script tag from rawgit CDN
+### Install using CDN
+**include script tag from rawgit CDN**
 ```html
 <!-- thanks to Ryan Grove for operating https://rawgit.com-->
 <script src="https://cdn.rawgit.com/katmore/flat-js/master/dist/js/flat.min.js"></script>
 ```
 (See the [rawgit CDN FAQ](https://github.com/rgrove/rawgit/wiki/Frequently-Asked-Questions) for more information)
-
-## Documentation
-Most accessible functions have [JSDoc](http://usejsdoc.org/) comment blocks. 
 
 ## Examples
  * [URL query examples](#url-query-examples)
@@ -148,7 +145,7 @@ console.log('is var4 a string? '+isVar4String);
 console.log('is var5 a string? '+isVar5String);
 ```
 #### Example 2.4: array and object value test
-flat.isArray() and flat.isObject work similarly to isFunc, isInt, and isString...
+flat.isArray() and flat.isObject() work similarly to flat.isFunc(), flat.isInt, and flat.isString()...
 ```javascript
 // flat.isArray()
 console.log('am I an array?' + flat.isArray([]);
@@ -160,11 +157,13 @@ console.log('am I an object?' + flat.isObject("poop");
 
 ## Legal
 ### Copyright
-The Flat Javascript Companion - https://github.com/katmore/flat-js
+The Flat JavaScript Companion - https://github.com/katmore/flat-js
+
 Copyright (c) 2012-2017 Garrison Koch, Doug Bird, and Daniel Lepthien. All Rights Reserved.
 
 ### License
-"The Flat Javascript Companion" is copyrighted free software.
+"The Flat JavaScript Companion" is copyrighted free software.
+
 You may redistribute and modify it under either the terms and conditions of the
 "The MIT License (MIT)"; or the terms and conditions of the "GPL v3 License".
-See [LICENSE](https://github.com/katmore/flat/blob/master/LICENSE) and [GPLv3](https://github.com/katmore/flat/blob/master/GPLv3).
+See [LICENSE](https://github.com/katmore/flat-js/blob/master/LICENSE) and [GPLv3](https://github.com/katmore/flat-js/blob/master/GPLv3).
