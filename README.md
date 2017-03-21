@@ -1,4 +1,6 @@
 # flat-js
+**The Flat Javascript Companion**
+
 Javascript companion to [the flat framework](https://github.com/katmore/flat). Offers convenient single-line wrappers for a variety of functionality.
 
 ##Installation
@@ -11,20 +13,20 @@ $ bower install katmore/flat-js --save
 ```
 #### Step 2: include script tag pointing your project's bower components path
 ```html
-<!-- change './bower_components' to point to your project's bower components path as needed-->
-<script src="./bower_components/flat-js/src/flat.js"></script>
+<!-- change './bower_components' to point to your project's bower components path as appropriate-->
+<script src="./bower_components/flat-js/dist/js/flat.min.js"></script>
 ```
 
 ### Installation Method 2: Using CDN
 include script tag from rawgit CDN
 ```html
 <!-- thanks to Ryan Grove for operating https://rawgit.com-->
-<script src="https://cdn.rawgit.com/katmore/flat-js/master/src/js/flat.js"></script>
+<script src="https://cdn.rawgit.com/katmore/flat-js/master/dist/js/flat.min.js"></script>
 ```
 (See the [rawgit CDN FAQ](https://github.com/rgrove/rawgit/wiki/Frequently-Asked-Questions) for more information)
 
 ## Documentation
-Unfortunately, flat-js documentation has not yet been generated; though some functions have JSDoc comment blocks.
+Most accessible functions have [JSDoc](http://usejsdoc.org/) comment blocks. 
 
 ## Examples
  * [URL query examples](#url-query-examples)
@@ -41,9 +43,9 @@ then add the query string to the URL in your browser.
 //
 // assuming browser URL: http://example.com/?ohai&my_key=my_value
 //
-var ohai_exists = flat.urlQuery_keyexists('ohai');
-var obai_exists = flat.urlQuery_keyexists('obai');
-var mykey_exists = flat.urlQuery_keyexists('obai');
+var ohai_exists = flat.urlQueryExists('ohai');
+var obai_exists = flat.urlQueryExists('obai');
+var mykey_exists = flat.urlQueryExists('obai');
 console.log('Does "ohai" exist? '+ohai_exists);
 console.log('Does "obai" exist? '+obai_exists);
 console.log('Does "my_key" exist? ' + mykey_exists);
@@ -53,7 +55,7 @@ console.log('Does "my_key" exist? ' + mykey_exists);
 //
 // assuming browser URL: http://example.com/?my_key=my_value
 //
-var myKeyValue = flat.urlQuery_get('my_key');
+var myKeyValue = flat.urlQueryGet('my_key');
 console.log('my_key value: '+ myKeyValue);
 ```
 #### Example 1.3: Determine if a query key/val has a "truthy" value.
@@ -62,12 +64,12 @@ console.log('my_key value: '+ myKeyValue);
 // assuming browser URL: 
 //   http://example.com/?my_option1=on,my_option2=off,my_option3=yes,my_option4=no,my_option5=true,my_option6=false
 //
-var myOption1 = flat.urlQuery_keytruthy('my_option1');
-var myOption2 = flat.urlQuery_keytruthy('my_option2');
-var myOption3 = flat.urlQuery_keytruthy('my_option3');
-var myOption4 = flat.urlQuery_keytruthy('my_option4');
-var myOption5 = flat.urlQuery_keytruthy('my_option5');
-var myOption6 = flat.urlQuery_keytruthy('my_option6');
+var myOption1 = flat.urlQueryTruthy('my_option1');
+var myOption2 = flat.urlQueryTruthy('my_option2');
+var myOption3 = flat.urlQueryTruthy('my_option3');
+var myOption4 = flat.urlQueryTruthy('my_option4');
+var myOption5 = flat.urlQueryTruthy('my_option5');
+var myOption6 = flat.urlQueryTruthy('my_option6');
 console.log('myOption1? '+myOption1 + '(string value was "on")');
 console.log('myOption2? '+myOption2 + '(string value was "off")');
 console.log('myOption3? '+myOption3 + '(string value was "yes")');
@@ -80,12 +82,12 @@ console.log('myOption6? '+myOption6 + '(string value was "false")');
 //
 // assuming browser URL: http://example.com/?my_key=my_value
 //
-flat.urlQuery_set('my_key','my_new_value');
+flat.urlQuerySet('my_key','my_new_value');
 //
 // look at your browser URL now, 
 //    it will read: http://example.com/?my_key=my_new_value
 //
-console.log('my_key value from urlQuery_set: '+ myKeyValue);
+console.log('my_key value from urlQuerySet: '+ myKeyValue);
 ```
 
 ### Value testing examples
@@ -98,11 +100,11 @@ var var2 = {};
 var var3 = "";
 var var4 = 1;
 var var5 = [];
-var isVar1Function flat.is_func(var1);
-var isVar2Function flat.is_func(var2);
-var isVar3Function flat.is_func(var3);
-var isVar4Function flat.is_func(var4);
-var isVar5Function flat.is_func(var5);
+var isVar1Function flat.isFunc(var1);
+var isVar2Function flat.isFunc(var2);
+var isVar3Function flat.isFunc(var3);
+var isVar4Function flat.isFunc(var4);
+var isVar5Function flat.isFunc(var5);
 console.log('is var1 a function? '+isVar1Function);
 console.log('is var2 a function? '+isVar2Function);
 console.log('is var3 a function? '+isVar3Function);
@@ -116,11 +118,11 @@ var var2 = {};
 var var3 = "";
 var var4 = 1;
 var var5 = [];
-var isVar1Integer flat.is_int(var1);
-var isVar2Integer flat.is_int(var2);
-var isVar3Integer flat.is_int(var3);
-var isVar4Integer flat.is_int(var4);
-var isVar5Integer flat.is_int(var5);
+var isVar1Integer flat.isInt(var1);
+var isVar2Integer flat.isInt(var2);
+var isVar3Integer flat.isInt(var3);
+var isVar4Integer flat.isInt(var4);
+var isVar5Integer flat.isInt(var5);
 console.log('is var1 a integer? '+isVar1Integer);
 console.log('is var2 a integer? '+isVar2Integer);
 console.log('is var3 a integer? '+isVar3Integer);
@@ -134,11 +136,11 @@ var var2 = {};
 var var3 = "";
 var var4 = 1;
 var var5 = [];
-var isVar1String flat.is_string(var1);
-var isVar2String flat.is_string(var2);
-var isVar3String flat.is_string(var3);
-var isVar4String flat.is_string(var4);
-var isVar5String flat.is_string(var5);
+var isVar1String flat.isString(var1);
+var isVar2String flat.isString(var2);
+var isVar3String flat.isString(var3);
+var isVar4String flat.isString(var4);
+var isVar5String flat.isString(var5);
 console.log('is var1 a string? '+isVar1String);
 console.log('is var2 a string? '+isVar2String);
 console.log('is var3 a string? '+isVar3String);
@@ -146,12 +148,23 @@ console.log('is var4 a string? '+isVar4String);
 console.log('is var5 a string? '+isVar5String);
 ```
 #### Example 2.4: array and object value test
-flat.is_array() and flat.is_object work similarly to is_func, is_int, and is_string...
+flat.isArray() and flat.isObject work similarly to isFunc, isInt, and isString...
 ```javascript
-// flat.is_array()
-console.log('am I an array?' + flat.is_array([]);
-console.log('am I an array?' + flat.is_array("poop");
-// flat.is_object()
-console.log('am I an object?' + flat.is_object({});
-console.log('am I an object?' + flat.is_object("poop");
+// flat.isArray()
+console.log('am I an array?' + flat.isArray([]);
+console.log('am I an array?' + flat.isArray("poop");
+// flat.isObject()
+console.log('am I an object?' + flat.isObject({});
+console.log('am I an object?' + flat.isObject("poop");
 ```
+
+## Legal
+### Copyright
+The Flat Javascript Companion - https://github.com/katmore/flat-js
+Copyright (c) 2012-2017 Garrison Koch, Doug Bird, and Daniel Lepthien. All Rights Reserved.
+
+### License
+"The Flat Javascript Companion" is copyrighted free software.
+You may redistribute and modify it under either the terms and conditions of the
+"The MIT License (MIT)"; or the terms and conditions of the "GPL v3 License".
+See [LICENSE](https://github.com/katmore/flat/blob/master/LICENSE) and [GPLv3](https://github.com/katmore/flat/blob/master/GPLv3).
