@@ -9,7 +9,7 @@
 ### Install using Bower
 #### Bower Step 1: execute bower shell command:
 ```Shell
-$ bower install katmore/*Flat-js* --save
+$ bower install flat-js --save
 ```
 #### Bower Step 2: include script tag pointing your project's bower components path
 ```html
