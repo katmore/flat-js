@@ -1,15 +1,15 @@
 # Flat-js
 **The Flat JavaScript Companion**
 
-Flat-js is the JavaScript companion to [the flat framework](https://github.com/katmore/flat). It contains convenience wrappers and utility functions.
+*Flat-js* is the JavaScript companion to "[The Flat Framework](https://github.com/katmore/flat)". It contains convenience wrappers and utility functions.
 
-##Installation
-Flat-js may be installed using Bower or a CDN as described below.
+## Installation
+*Flat-js* may be installed using Bower or a CDN as described below.
 
 ### Install using Bower
 #### Bower Step 1: execute bower shell command:
 ```Shell
-$ bower install katmore/flat-js --save
+$ bower install katmore/*Flat-js* --save
 ```
 #### Bower Step 2: include script tag pointing your project's bower components path
 ```html
@@ -18,7 +18,7 @@ $ bower install katmore/flat-js --save
 ```
 
 ### Install using CDN
-**include script tag from rawgit CDN**
+**Include script tag from rawgit CDN:**
 ```html
 <!-- thanks to Ryan Grove for operating https://rawgit.com-->
 <script src="https://cdn.rawgit.com/katmore/flat-js/master/dist/js/flat.min.js"></script>
@@ -30,7 +30,7 @@ $ bower install katmore/flat-js --save
  * [Value testing examples](#value-testing-examples)
 
 ### URL query examples
-Flat-js simplifies reading and manipulating browser URLs to single lines.
+*Flat-js* simplifies reading and manipulating browser URLs to single lines.
 
 In the examples below, replace "example.com" with the host and path to your project/resource, 
 then add the query string to the URL in your browser.
@@ -88,7 +88,7 @@ console.log('my_key value from urlQuerySet: '+ myKeyValue);
 ```
 
 ### Value testing examples
-Flat-js simplifies value testing to single lines.
+*Flat-js* simplifies value testing to single lines.
 
 #### Example 2.1: test if value is function
 ```javascript
