@@ -237,6 +237,11 @@ var flat;
       };
       pub.is_int = pub.isInt;
       pub.isInteger = pub.isInt;
+      
+      pub.isNumeric = function(n) {
+         return !isNaN(parseFloat(n)) && isFinite(n);
+      };
+      
       /**
        * determines if given argument value is a String
        * @method flat.isString()
