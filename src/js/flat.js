@@ -41,13 +41,16 @@ var flat;
       var data_storage_prefix = 'flat/';
       
       var data_storage;
-      try {
-         storage.setItem(testKey, '1');
-         storage.removeItem(testKey);
-         data_storage = sessionStorage;
-      }  catch (error) 
-      {
-         data_storage = null;
+      if (sessionStorage!=='undefined') {
+         try {
+            data_storage = sessionStorage;
+            data_storage.setItem('testKey-flatjs', '1');
+            data_storage.removeItem('testKey-flatjs');
+
+         }  catch (error) 
+         {
+            data_storage = null;
+         }
       }
       if (!data_storage) {
          data_storage = (function() {
