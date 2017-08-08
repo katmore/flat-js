@@ -41,9 +41,9 @@ var flat;
       var data_storage_prefix = 'flat/';
       
       var data_storage;
-      if (sessionStorage!=='undefined') {
+      if (localStorage!=='undefined') {
          try {
-            data_storage = sessionStorage;
+            data_storage = localStorage;
             data_storage.setItem('testKey-flatjs', '1');
             data_storage.removeItem('testKey-flatjs');
 
