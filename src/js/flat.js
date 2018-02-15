@@ -585,6 +585,10 @@ var flat;
           cycle();
           cleanReadyGarbage();
        };
+      
+       pub.heredoc = function(f) {
+           return f.toString().match(/\/\*\s*([\s\S]*?)\s*\*\//m)[1];
+       };       
        
        pub.ready = function(moduleName,callback) {
           
