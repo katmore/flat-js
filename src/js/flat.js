@@ -341,7 +341,13 @@ var flat;
          // Convert the array of strings into an object
          for (i = 0, l = queries.length; i < l; i++ ) {
             kv = queries[i].split('=');
-            params[kv[0]] = decodeURIComponent(kv[1]);
+            try {
+					params[kv[0]] = decodeURIComponent(kv[1]);
+				} catch (ex) {
+					console.log('WARNING: decodeURIComponent error...');
+					console.log(kv[1]);
+					params[kv[0]] = kv[1];
+				}
          }
          for (var p in params) {
             plist.push(p);
