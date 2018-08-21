@@ -36,7 +36,7 @@ In the examples below, replace "example.com" with the host and path to your proj
 then add the query string to the URL in your browser.
 
 #### Determine if a url query key exists.
-**source:**
+* source:
 ```js
 //
 // assuming browser URL: http://example.com/?ohai&my_key=my_value
@@ -48,14 +48,14 @@ console.log('Does "ohai" exist? '+ohai_exists);
 console.log('Does "obai" exist? '+obai_exists);
 console.log('Does "my_key" exist? ' + mykey_exists);
 ```
-**console output:**
+* console output:
 ```txt
 Does "ohai" exist? yes
 Does "obai" exist? no
 Does "my_key" exist? yes
 ```
 #### Get a url query key value.
-**source:**
+* source:
 ```js
 //
 // assuming browser URL: http://example.com/?my_key=my_value
@@ -68,7 +68,7 @@ console.log('my_key value: '+ myKeyValue);
 my_key value: my_value
 ```
 #### Determine if a url query key has a "truthy" value.
-**source:**
+* source:
 ```javascript
 //
 // assuming browser URL: 
@@ -87,7 +87,7 @@ console.log('myOption4: '+myOption4 + ' (string value was "no")');
 console.log('myOption5: '+myOption5 + ' (string value was "true")');
 console.log('myOption6: '+myOption6 + ' (string value was "false")');
 ```
-**console output:**
+* console output:
 ```txt
 myOption1: true (string value was "on")
 myOption2: false (string value was "off")
@@ -97,7 +97,7 @@ myOption5: true (string value was "true")
 myOption6: false (string value was "false")
 ```
 #### Change a url query value.
-**source:**
+* source:
 ```js
 //
 // assuming browser URL: http://example.com/?my_key=my_value
@@ -109,7 +109,7 @@ flat.urlQuerySet('my_key','my_new_value');
 //
 console.log('my_key value: '+ flat.urlQueryGet('my_key'));
 ```
-**console output:**
+* console output:
 ```txt
 my_key value: my_new_value
 ```
@@ -118,7 +118,7 @@ my_key value: my_new_value
 *Flat-js* simplifies many value tests to a single line of code.
 
 #### Determine if value is function example
-**source:**
+* source:
 ```javascript
 var var1 = function() {};
 var var2 = {};
@@ -136,7 +136,7 @@ console.log('is var3 a function? '+isVar3Function);
 console.log('is var4 a function? '+isVar4Function);
 console.log('is var5 a function? '+isVar5Function);
 ```
-**console output:**
+* console output:
 ```txt
 is var1 a function? true
 is var2 a function? false
@@ -145,7 +145,7 @@ is var4 a function? false
 is var5 a function? false
 ```
 #### Determine if value is integer example
-**source:**
+* source:
 ```js
 var var1 = function() {};
 var var2 = {};
@@ -163,7 +163,7 @@ console.log('is var3 a integer? '+isVar3Integer);
 console.log('is var4 a integer? '+isVar4Integer);
 console.log('is var5 a integer? '+isVar5Integer);
 ```
-**console output:**
+* console output:
 ```txt
 is var1 a integer? false
 is var2 a integer? false
@@ -172,7 +172,7 @@ is var4 a integer? true
 is var5 a integer? false
 ```
 #### Determine if value is string example
-**source:**
+* source:
 ```js
 var var1 = function() {};
 var var2 = {};
@@ -185,7 +185,7 @@ var isVar3String = flat.isString(var3);
 var isVar4String = flat.isString(var4);
 var isVar5String = flat.isString(var5);
 ```
-**console output:**
+* console output:
 ```txt
 is var1 a string? false
 is var2 a string? false
@@ -195,7 +195,7 @@ is var5 a string? false
 ```
 #### Determine if value is array or object
 flat.isArray() and flat.isObject() work similarly to flat.isFunc(), flat.isInt, and flat.isString()...
-**source:**
+* source:
 ```js
 var var1 = function() {};
 var var2 = {};
@@ -213,7 +213,7 @@ console.log('is var4 an object: '+flat.isObject(var4));
 console.log('is var5 an array: '+flat.isArray(var5));
 console.log('is var5 an object: '+flat.isObject(var5));
 ```
-**console output:**
+* console output:
 ```txt
 is var1 an array: false
 is var1 an object: false
@@ -230,18 +230,18 @@ is var5 an object: false
 The `flat.heredoc()` function facilitates a HEREDOC-like declaration of string values.
 
 #### single-line heredoc string declaration
-**source:**
+* source:
 ```js
 var myString = flat.heredoc(function() { /*this is the string value*/ });
 console.log(myString);
 ```
-**console output:**
+* console output:
 ```txt
 this is the string value
 ```
      
 #### multi-line heredoc string declaration
-**source:**
+* source:
 ```js
 var myString = flat.heredoc(function() { /*
 this string has
@@ -250,7 +250,7 @@ one line
 */ });
 console.log(myString);
 ```
-**console output:**
+* console output:
 ```txt
 this string has
 more than
