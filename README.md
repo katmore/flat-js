@@ -63,7 +63,7 @@ Does "my_key" exist? yes
 var myKeyValue = flat.urlQueryGet('my_key');
 console.log('my_key value: '+ myKeyValue);
 ```
-**console output**
+* console output:
 ```txt
 my_key value: my_value
 ```
