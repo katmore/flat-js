@@ -50,9 +50,9 @@ console.log('Does "my_key" exist? ' + mykey_exists);
 ```
 * console output:
 ```txt
-Does "ohai" exist? yes
-Does "obai" exist? no
-Does "my_key" exist? yes
+Does "ohai" exist? true
+Does "obai" exist? false
+Does "my_key" exist? true
 ```
 #### Get a url query key value.
 * source:
