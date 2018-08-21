@@ -117,7 +117,7 @@ my_key value: my_new_value
 ### Value testing examples
 *Flat-js* simplifies many value tests to a single line of code.
 
-#### Determine if value is function example
+#### Determine if value is function
 * source:
 ```javascript
 var var1 = function() {};
@@ -144,7 +144,7 @@ is var3 a function? false
 is var4 a function? false
 is var5 a function? false
 ```
-#### Determine if value is integer example
+#### Determine if value is integer
 * source:
 ```js
 var var1 = function() {};
@@ -171,7 +171,7 @@ is var3 a integer? false
 is var4 a integer? true
 is var5 a integer? false
 ```
-#### Determine if value is string example
+#### Determine if value is string
 * source:
 ```js
 var var1 = function() {};
