@@ -356,6 +356,8 @@
             response_properties : '',
             
             send_JSON : true,
+            
+            withCredentials : false,
          };
          /*
           * determine params from function arguments
@@ -454,6 +456,11 @@
             } else {
                conf.data = params.data;
             }
+         }
+         if (params.withCredentials) {
+            conf.xhrFields = {
+               withCredentials: true
+            };
          }
          //var url = pub.url(slug);
          ////flat.debug(conf.data,'flat api conf data');
