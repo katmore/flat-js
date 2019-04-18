@@ -282,6 +282,166 @@
             throw pub.missing_expected_property(props[i]);
          }
       };
+      
+      var evcb = {}; // hashmap of event handlers by event name
+      var evh = {}; // hashmap of event handlers by event name
+      var evdone = []; // array of each event triggered at least one time
+      var evdata = {}; // hashmap of event trigger data
+      var evonce = {};
+      var evfb = {};
+      
+      var execute_cb = function(evname, handler, data) {
+         if (flat.is_func(evh[evname])) {
+            evh[evname].call({}, handler, data);
+            return;
+         }
+         handler.call({},data);
+      };
+      
+      /**
+       * Registers an event handler that is executed each time an 
+       * event is triggered only if no other handlers
+       * have been registered for the event.
+       * 
+       * @param {string} event space separated event names
+       * @param {string} handler callback signature: function(data)
+       */
+      pub.fallback = function(event, handler) {
+         if (typeof handler !== 'function') return;
+         if (typeof event !== 'string' && !event instanceof String) return;
+         event.split(' ').forEach(function(evname) {
+            if (typeof evcb[evname] !== 'undefined' && evcb[evname].length) return;
+            if (typeof evonce[evname] !== 'undefined' && evonce[evname].length) return;
+            evfb[evname] = handler;
+         });
+      };
+      
+      pub.off = function(event, handler) {
+         if (typeof event !== 'string' && !event instanceof String) return;
+         event.split(' ').forEach(function(evname) {
+            if (typeof handler === 'function') {
+               if (evcb[evname]!=='undefined') {
+                  for (var i = 0; i < evcb[evname].length; i++) {
+                     if (handler===evcb[evname][i]) {
+                        delete evcb[evname][i];
+                     }
+                  }
+                  delete i;
+               }
+               if (evonce[evname]!=='undefined') {
+                  for (var i = 0; i < evonce[evname].length; i++) {
+                     if (handler===evonce[evname][i]) {
+                        delete evonce[evname][i];
+                     }
+                  }
+                  delete i;
+               }
+            } else {
+               delete evcb[evname];
+               delete evonce[evname];
+            }
+         });
+      };
+      
+      /**
+       * Registers an event handler that is executed each time an event
+       *   is triggered; if the event has already been triggered, 
+       *   the handler is executed immediately.
+       *   
+       * @param {string} event space separated event names
+       * @param {string} handler callback signature: function(data)
+       */
+      pub.on = function(event, handler) {
+         if (typeof handler !== 'function') return;
+         if (typeof event !== 'string' && !event instanceof String) return;
+         event.split(' ').forEach(function(evname) {
+            if (evdone.indexOf(evname) !== -1) {
+              return execute_cb(evname, handler, evdata[evname]);
+            }
+            if (typeof evcb[evname] === 'undefined') evcb[evname] = [];
+            evcb[evname].push(handler);
+         });
+      };
+      
+      /**
+       * Registers an event handler that is executed each time an event
+       *   is triggered in the future.
+       *   
+       * @param {string} event space separated event names
+       * @param {string} handler callback signature: function(data)
+       */
+      pub.listen = function(event, handler) {
+         if (typeof handler !== 'function') return;
+         if (typeof event !== 'string' && !event instanceof String) return;
+         event.split(' ').forEach(function(evname) {
+            if (typeof evcb[evname] === 'undefined') evcb[evname] = [];
+            evcb[evname].push(handler);
+         });
+      };
+      
+      /**
+       * Registers an event handler that is executed only the first time an event
+       *   is triggered, if it has already been triggered, the handler is executed
+       *   immediately.
+       *   
+       * @param {string} event space separated event names
+       * @param {string} handler callback signature: function(data)
+       */
+      pub.once = function(event, handler) {
+         if (typeof handler !== 'function') return;
+         if (typeof event !== 'string' && !event instanceof String) return;
+         event.split(' ').forEach(function(evname) {
+            if (evdone.indexOf(evname) !== -1) {
+               return execute_cb(evname, handler, evdata[evname]);
+            }
+            if (typeof evonce[evname] === 'undefined') evonce[evname] = [];
+            evonce[evname].push(handler);
+         });
+      };
+      
+      /**
+       * Executes all behavior associated with an event.
+       * 
+       * @param {string} event space separated event names
+       * @param {object} data to be passed to event handlers
+       */
+      var trigger = function(event, data) {
+        if (typeof event !== 'string' && !event instanceof String) return;
+        evdone.indexOf(event) === -1 && evdone.push(event);
+        if (typeof data !== 'undefined') {
+           evdata[event] = data;
+        } else {
+           delete evdata[event];
+        }
+        event.split(' ').forEach(function(evname) {
+           var i, foundCb = false;
+           if (typeof evcb[evname] !== 'undefined' && evcb[evname].length) {
+              foundCb = true;
+              for (i = 0; i < evcb[evname].length; i++) {
+                execute_cb(evname, evcb[evname][i], data);
+              }
+           }
+           if (typeof evonce[evname] !== 'undefined' && evonce[evname].length) {
+              foundCb = true;
+              for (i = 0; i < evonce[evname].length; i++) {
+                 execute_cb(evname, evonce[evname][i], data);
+              }
+              delete evonce[evname];
+           }
+           if (!foundCb && typeof evfb[evname] !== 'undefined') {
+              foundCb = true;
+              if (typeof evh[evname] === 'function') {
+                 evh[evname].call({},data, evfb[evname]);
+              } else {
+                 evfb[evname].call({}, data);
+              }
+           }
+           if (!foundCb && typeof evh[evname] === 'function') {
+              evh[evname].call({},data, function(){});
+           }
+        });
+      };
+      
       /**
        * executes a flat/api request
        *    callback signature: callback(data,status,response)
@@ -525,11 +685,15 @@
                }
             }
             if (status=='success') {
+               
+               trigger('success.response',data);
+               
                if (data && response.checksum && response.status && response.status_code) {
                   if (params.success && flat.is_func(params.success)) {
                      params.success(data, {status : response.status, code : response.status_code }, response.checksum );
                   }
                }
+               
             } else {
                if (params.error && flat.is_func(params.error)) {
                   
