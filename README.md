@@ -261,7 +261,7 @@ one line
 ### Copyright
 The Flat JavaScript Companion - https://github.com/katmore/flat-js
 
-Copyright (c) 2012-2018 Garrison Koch, Doug Bird, and Daniel Lepthien. All Rights Reserved.
+Copyright (c) 2012-2019 Garrison Koch, Doug Bird, and Daniel Lepthien. All Rights Reserved.
 
 ### License
 "The Flat JavaScript Companion" is copyrighted free software.
